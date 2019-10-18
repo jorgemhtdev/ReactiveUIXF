@@ -1,13 +1,13 @@
 # Reactive UI for Xamarin Forms
 
 
-# Tools used
+## Tools used
 
 * [Visual Studio for mac and windows](https://visualstudio.microsoft.com)
 * [LiveXAML](http://www.livexaml.com) - Live simulator updates for your XAML code 
 * [Mfractor](https://www.mfractor.com) - MFractor is the essential productivity tool for Visual Studio Mac
 
-# Licenses
+## Licenses
 
 This project uses some third-party assets with a license that requires attribution:
 
@@ -17,15 +17,15 @@ This project uses some third-party assets with a license that requires attributi
 - [Reactive ui](https://github.com/reactiveui/reactiveui#net-foundation) : ReactiveUI is part of the .NET Foundation. Other projects that are associated with the foundation include the Microsoft .NET Compiler Platform ("Roslyn") as well as the Microsoft ASP.NET family of projects, Microsoft .NET Core & Xamarin Forms.
 
 
-# Links
+## Links
 
 - [Reactive ui guidelines](https://reactiveui.net/docs/guidelines/platform/xamarin-forms)
 - [Reactive ui installation](https://reactiveui.net/docs/getting-started/installation/)
 
-# Clean and Rebuild
+## Clean and Rebuild
 
 If you see build issues when pulling updates from the repo, try cleaning and rebuilding the solution.
 
-# Copyright and license
+## Copyright and license
 
 The MIT License (MIT) see [License file](https://github.com/jorgemht/ReactiveUIXF/blob/master/LICENSE)
