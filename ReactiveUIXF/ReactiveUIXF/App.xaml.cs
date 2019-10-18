@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace ReactiveUIXamarinForms
+namespace ReactiveUIXF
 {
     public partial class App : Application
     {

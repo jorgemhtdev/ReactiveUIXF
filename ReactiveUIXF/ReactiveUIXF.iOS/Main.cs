@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace ReactiveUIXamarinForms.iOS
+namespace ReactiveUIXF.iOS
 {
     public class Application
     {
