@@ -1,18 +1,31 @@
 ﻿namespace ReactiveUIXF.Views
 {
-    using ReactiveUIXF.Services.Film;
+    using ReactiveUI;
+    using ReactiveUI.XamForms;
     using ReactiveUIXF.ViewModels;
-    using Xamarin.Forms;
-    using Xamarin.Forms.Xaml;
+    using System.Reactive;
+    using System.Reactive.Disposables;
+    using System.Reactive.Linq;
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FilmView : ContentPage
+    public partial class FilmView : ReactiveContentPage<FilmViewModel>
     {
         public FilmView()
         {
             InitializeComponent();
 
-            BindingContext = new FilmViewModel();
+            this.WhenActivated(disposables =>
+            {
+                this.WhenAnyValue(x => x.ViewModel.LoadCommand)
+                    .Where(x => x != null)
+                    .Select(x => Unit.Default)
+                    .InvokeCommand(ViewModel.LoadCommand);
+
+                this.OneWayBind(ViewModel, vm => vm.Films, v => v.FilmList.ItemsSource)
+                    .DisposeWith(disposables);
+
+                this.OneWayBind(ViewModel, vm => vm.LoadingFilms, v => v.Loading.IsVisible)
+                    .DisposeWith(disposables);
+            });
         }
     }
 }

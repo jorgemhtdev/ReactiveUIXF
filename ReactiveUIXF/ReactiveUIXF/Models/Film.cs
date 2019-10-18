@@ -1,10 +1,25 @@
 ﻿namespace ReactiveUIXF.Models
 {
-    using ReactiveUI.Fody.Helpers;
+    using Newtonsoft.Json;
 
     public class Film
     {
-        [Reactive] public string IdFilm { get; set; }
-        [Reactive] public string Name { get; set; }
+        [JsonProperty("filmId")]
+        public long FilmId { get; set; }
+
+        [JsonProperty("title")]
+        public string Title { get; set; }
+
+        [JsonProperty("originalTitle")]
+        public string OriginalTitle { get; set; }
+
+        [JsonProperty("imdb")]
+        public string Imdb { get; set; }
+
+        [JsonProperty("year")]
+        public string Year { get; set; }
+
+        [JsonProperty("duration")]
+        public string Duration { get; set; }
     }
 }
