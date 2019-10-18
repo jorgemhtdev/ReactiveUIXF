@@ -40,6 +40,9 @@ This project uses some third-party assets with a license that requires attributi
 - [Xamarin.Essentials](https://www.nuget.org/packages/Xamarin.Essentials) : by James Montemagno
 - [Reactive ui](https://github.com/reactiveui/reactiveui#net-foundation) : ReactiveUI is part of the .NET Foundation. Other projects that are associated with the foundation include the Microsoft .NET Compiler Platform ("Roslyn") as well as the Microsoft ASP.NET family of projects, Microsoft .NET Core & Xamarin Forms.
 
+## Dario youtube channel
+
+- [first talk about reactive](https://www.youtube.com/watch?v=LVQk7tMyUy8)
 
 ## Links
 
