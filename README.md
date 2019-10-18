@@ -42,7 +42,7 @@ This project uses some third-party assets with a license that requires attributi
 
 ## Dario youtube channel
 
-- [first talk about reactive](https://www.youtube.com/watch?v=LVQk7tMyUy8)
+- [First talk about reactive](https://www.youtube.com/watch?v=LVQk7tMyUy8)
 
 ## Links
 
