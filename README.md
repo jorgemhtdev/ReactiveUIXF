@@ -1,6 +1,30 @@
 # Reactive UI for Xamarin Forms
 
 
+## Install ##
+Nuget package ReactiveUI.Fody:
+
+> Install-Package ReactiveUI.Fody
+
+**Reactive Properties**
+
+Eases the need for boilerplate in your view models when using [reactiveui](https://github.com/reactiveui/ReactiveUI).  Typically, in your view models you must declare properties like this:
+
+    string _name;
+    
+    public string Name 
+    {
+        get { return _name; }
+        set { this.RaiseAndSetIfChanged(ref _name, value); }
+    }
+
+This is tedious since all you'd like to do is declare properties as normal:
+
+    [Reactive]public string Name { get; set; }
+    
+If a property is annotated with the `[Reactive]` attribute, the plugin will weave the boilerplate into your 
+output based on the simple auto-property declaration you provide.  
+
 ## Tools used
 
 * [Visual Studio for mac and windows](https://visualstudio.microsoft.com)
