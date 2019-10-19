@@ -25,6 +25,47 @@ This is tedious since all you'd like to do is declare properties as normal:
 If a property is annotated with the `[Reactive]` attribute, the plugin will weave the boilerplate into your 
 output based on the simple auto-property declaration you provide.  
 
+## Dependency Inversion - Splat ##
+
+**Registration**
+
+    public class AppBootstrapper : IEnableLogger
+    {
+        public static AppBootstrapper Instance { get; } = new AppBootstrapper();
+
+        public AppBootstrapper()
+        {
+            RegisterDependencies();
+        }
+
+        public void RegisterDependencies()
+        {
+            Locator.CurrentMutable.RegisterConstant(new NavigationService(), typeof(INavigationService));
+            Locator.CurrentMutable.RegisterConstant(new AuthenticationService(), typeof(IAuthenticationService));
+        }
+    }
+
+**Resolution**
+
+    var navigationService = Locator.Current.GetService<INavigationService>();
+    
+**The best way to use Service Locator**
+
+Splat provides methods to resolve dependencies to single or multiple instances.
+
+    var navigationService = Locator.Current.GetService<INavigationService>();
+    var allnavigationService = Locator.Current.GetService<INavigationService>();
+    
+Recommended usage is:
+
+    public NavigationService(IAuthenticationService authenticationService = null)
+    {
+        _authenticationService = authenticationService ?? Locator.Current.GetService<IAuthenticationService>();
+        
+        mappings = new Dictionary<Type, Type>(); 
+        CreatePageViewModelMappings();
+    }
+
 ## Tools used
 
 * [Visual Studio for mac and windows](https://visualstudio.microsoft.com)
@@ -48,6 +89,7 @@ This project uses some third-party assets with a license that requires attributi
 
 - [Reactive ui guidelines](https://reactiveui.net/docs/guidelines/platform/xamarin-forms)
 - [Reactive ui installation](https://reactiveui.net/docs/getting-started/installation/)
+- [Dependency inversion - Splat](https://reactiveui.net/docs/handbook/dependency-inversion/)
 
 ## Clean and Rebuild
 
