@@ -54,7 +54,7 @@ output based on the simple auto-property declaration you provide.
 Splat provides methods to resolve dependencies to single or multiple instances.
 
     var navigationService = Locator.Current.GetService<INavigationService>();
-    var allnavigationService = Locator.Current.GetService<INavigationService>();
+    var allnavigationService = Locator.Current.GetServices<INavigationService>();
     
 Recommended usage is:
 
