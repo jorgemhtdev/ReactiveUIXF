@@ -123,6 +123,7 @@ Recommended usage is:
 * [Visual Studio for mac and windows](https://visualstudio.microsoft.com)
 * [LiveXAML](http://www.livexaml.com) - Live simulator updates for your XAML code 
 * [Mfractor](https://www.mfractor.com) - MFractor is the essential productivity tool for Visual Studio Mac
+* [Json to C#](https://quicktype.io/csharp/) - Generate models and serializers from JSON and schema
 
 ## Licenses
 
