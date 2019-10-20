@@ -25,7 +25,7 @@ This is tedious since all you'd like to do is declare properties as normal:
 If a property is annotated with the `[Reactive]` attribute, the plugin will weave the boilerplate into your 
 output based on the simple auto-property declaration you provide.  
 
-**Data Binding**
+## Data Binding ##
 
 Bind: - Sets up a two-way binding between a property on the ViewModel to the View.
 
@@ -123,7 +123,7 @@ This project uses some third-party assets with a license that requires attributi
 - [Reactive ui guidelines](https://reactiveui.net/docs/guidelines/platform/xamarin-forms)
 - [Reactive ui installation](https://reactiveui.net/docs/getting-started/installation/)
 - [Dependency inversion - Splat](https://reactiveui.net/docs/handbook/dependency-inversion/)
-- [Data Binding] https://reactiveui.net/docs/handbook/data-binding/
+- [Data Binding](https://reactiveui.net/docs/handbook/data-binding/)
 
 ## Clean and Rebuild
 
