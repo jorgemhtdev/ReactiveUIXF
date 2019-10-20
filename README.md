@@ -25,6 +25,39 @@ This is tedious since all you'd like to do is declare properties as normal:
 If a property is annotated with the `[Reactive]` attribute, the plugin will weave the boilerplate into your 
 output based on the simple auto-property declaration you provide.  
 
+**Data Binding**
+
+Bind: - Sets up a two-way binding between a property on the ViewModel to the View.
+
+    this.WhenActivated(disposables =>
+    {
+        this.Bind(ViewModel,
+            viewModel => viewModel.UserName,
+            view => view.UserName.Text);
+
+        this.Bind(ViewModel,
+             viewModel => viewModel.Password,
+             view => view.Password.Text);
+    });
+
+BindCommand: - Bind an ICommand to a control, or to a specific event on that control (how this is implemented depends on the UI framework):
+
+OneWayBind: - Sets up a one-way binding from a property on the ViewModel to the View.
+    
+    this.WhenActivated(disposables =>
+    {
+        this.WhenAnyValue(x => x.ViewModel.LoadCommand)
+            .Where(x => x != null)
+            .Select(x => Unit.Default)
+            .InvokeCommand(ViewModel.LoadCommand); 
+         
+        this.OneWayBind(ViewModel, vm => vm.Films, v => v.FilmList.ItemsSource)
+             .DisposeWith(disposables);
+             
+        this.OneWayBind(ViewModel, vm => vm.LoadingFilms, v => v.Loading.IsVisible)
+             .DisposeWith(disposables);
+    });
+
 ## Dependency Inversion - Splat ##
 
 **Registration**
@@ -90,6 +123,7 @@ This project uses some third-party assets with a license that requires attributi
 - [Reactive ui guidelines](https://reactiveui.net/docs/guidelines/platform/xamarin-forms)
 - [Reactive ui installation](https://reactiveui.net/docs/getting-started/installation/)
 - [Dependency inversion - Splat](https://reactiveui.net/docs/handbook/dependency-inversion/)
+- [Data Binding] https://reactiveui.net/docs/handbook/data-binding/
 
 ## Clean and Rebuild
 
