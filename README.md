@@ -2,7 +2,16 @@
 
 
 ## Install ##
-Nuget package ReactiveUI.Fody:
+
+[Nuget package ReactiveUI.XamForms](https://www.nuget.org/packages/ReactiveUI.XamForms/10.5.7/)
+
+> Install-Package ReactiveUI.XamForms
+
+[Nuget package ReactiveUI.Events.XamFor](https://www.nuget.org/packages/ReactiveUI.Events.XamForms/10.5.7/)
+
+> Install-Package ReactiveUI.Events.XamFor
+
+[Nuget package ReactiveUI.Fody](https://www.nuget.org/packages/ReactiveUI.Fody/10.5.7/):
 
 > Install-Package ReactiveUI.Fody
 
