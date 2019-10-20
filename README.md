@@ -25,9 +25,15 @@ This is tedious since all you'd like to do is declare properties as normal:
 If a property is annotated with the `[Reactive]` attribute, the plugin will weave the boilerplate into your 
 output based on the simple auto-property declaration you provide.  
 
+## ViewModels ##
+
+All our ViewModels must inherit from Reactive Object which implements the INotifyPropertyChanged interface for us. Another feature of ReactiveUI is that the initialization of our properties and Commands is done in the ViewModels constructor.
+
+To initialize our properties and commands we do it through the contructor of our ViewModels.
+
 ## Data Binding ##
 
-Bind: - Sets up a two-way binding between a property on the ViewModel to the View.
+**Bind**: - Sets up a two-way binding between a property on the ViewModel to the View.
 
     this.WhenActivated(disposables =>
     {
@@ -39,10 +45,8 @@ Bind: - Sets up a two-way binding between a property on the ViewModel to the Vie
              viewModel => viewModel.Password,
              view => view.Password.Text);
     });
-
-BindCommand: - Bind an ICommand to a control, or to a specific event on that control (how this is implemented depends on the UI framework):
-
-OneWayBind: - Sets up a one-way binding from a property on the ViewModel to the View.
+    
+**OneWayBind**: - Sets up a one-way binding from a property on the ViewModel to the View.
     
     this.WhenActivated(disposables =>
     {
@@ -57,6 +61,12 @@ OneWayBind: - Sets up a one-way binding from a property on the ViewModel to the 
         this.OneWayBind(ViewModel, vm => vm.LoadingFilms, v => v.Loading.IsVisible)
              .DisposeWith(disposables);
     });
+
+**BindCommand**: - Bind an ICommand to a control, or to a specific event on that control. View model commands that need to be bound to view controls must implement the ICommand interface. View model commands are typically bound to view controls using one of the BindCommand overloads available in the view:
+
+    this.BindCommand(this.ViewModel, vm => vm.LoginCommand,
+        v => v.BtnLogin,
+        nameof(BtnLogin.Clicked));
 
 ## Dependency Inversion - Splat ##
 
@@ -124,6 +134,7 @@ This project uses some third-party assets with a license that requires attributi
 - [Reactive ui installation](https://reactiveui.net/docs/getting-started/installation/)
 - [Dependency inversion - Splat](https://reactiveui.net/docs/handbook/dependency-inversion/)
 - [Data Binding](https://reactiveui.net/docs/handbook/data-binding/)
+- [Binding Commands](https://reactiveui.net/docs/handbook/commands/binding-commands)
 
 ## Clean and Rebuild
 
