@@ -1,16 +1,14 @@
 ﻿namespace ReactiveUIXF.Services.Api
 {
-    using ReactiveUIXF.CustomException;
-    using ReactiveUIXF.Models;
-    using ReactiveUIXF.Services.Film;
     using ReactiveUIXF.Services.Interfaces;
+    using ReactiveUIXF.CustomException;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using ReactiveUIXF.Models;
     using Xamarin.Essentials;
 
     public class ApiService : IApiService
     {
-        private IFilmService filmService;
         private bool _hasInternet;
 
         public ApiService()
@@ -21,16 +19,11 @@
 
         public async Task <IEnumerable<Film>> GetAllFilm()
         {
-            if (!_hasInternet)
-                throw new ConnectivityException();
+            if (!_hasInternet) throw new ConnectivityException();
 
-            filmService = Refit.RestService.For<IFilmService>("https://my-json-server.typicode.com/");
-
-            return await filmService.GetAllFilm();
+            return await Refit.RestService.For<IFilmService>("https://my-json-server.typicode.com/").GetAllFilm();
         }
         private void ConnectivityOnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
-        {
-            _hasInternet = e.NetworkAccess == NetworkAccess.Internet;
-        }
+            => _hasInternet = e.NetworkAccess == NetworkAccess.Internet;
     }
 }

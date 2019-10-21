@@ -1,24 +1,23 @@
 ﻿namespace ReactiveUIXF.ViewModels
 {
-    using DynamicData;
     using Models;
-    using ReactiveUI;
-    using ReactiveUI.Fody.Helpers;
-    using ReactiveUIXF.Services.Interfaces;
-    using ReactiveUIXF.ViewModels.Base;
     using System;
+    using ReactiveUI;
+    using DynamicData;
+    using System.Reactive;
+    using ReactiveUI.Fody.Helpers;
+    using ReactiveUIXF.ViewModels.Base;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Reactive;
     using System.Reactive.Linq;
     using System.Reactive.Threading.Tasks;
-    using Xamarin.Forms;
 
     public class FilmViewModel : ViewModelBase
     {
         private SourceList<Film> _filmData;
 
         private ReadOnlyObservableCollection<Film> _films;
+
         public ReadOnlyObservableCollection<Film> Films => _films;
 
         public extern bool LoadingFilms { [ObservableAsProperty] get; }
@@ -39,7 +38,6 @@
                 .Subscribe();
         }
 
-        private IObservable<IEnumerable<Film>> LoadData() =>
-            DependencyService.Get<IApiService>().GetAllFilm().ToObservable();
+        private IObservable<IEnumerable<Film>> LoadData() => ApiService.GetAllFilm().ToObservable();
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ReactiveUIXF.Services.Film
+﻿namespace ReactiveUIXF.Services.Interfaces
 {
     using Refit;
     using System.Collections.Generic;

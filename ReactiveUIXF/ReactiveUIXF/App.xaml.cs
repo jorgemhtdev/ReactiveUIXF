@@ -1,11 +1,11 @@
 ﻿namespace ReactiveUIXF
 {
-    using ReactiveUIXF.Services.Api;
-    using ReactiveUIXF.Services.Interfaces;
-    using ReactiveUIXF.Views;
-    using ViewModels;
-    using Xamarin.Forms;
+    using ReactiveUIXF.Services.Navigation;
+    using ReactiveUIXF.ViewModels.Base;
+    using System.Threading.Tasks;
     using Xamarin.Forms.Xaml;
+    using Xamarin.Forms;
+    using Splat;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
@@ -13,32 +13,24 @@
         public App()
         {
             InitializeComponent();
-            ServiceDependency();
 
-            MainPage = new FilmView()
-            {
-                ViewModel = new FilmViewModel()
-            };
+            Build();
+
+            InitNavigation();
         }
-
-        private void ServiceDependency()
+        void Build() => AppBootstrapper.Instance.Build();
+        
+        private Task InitNavigation()
         {
-            DependencyService.Register<IApiService, ApiService>();
+            var navigationService = Locator.Current.GetService<INavigationService>();
+
+            return navigationService.InitializeAsync();
         }
 
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
+        protected override void OnStart() { }
 
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
+        protected override void OnSleep() { }
 
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
+        protected override void OnResume() { }
     }
 }

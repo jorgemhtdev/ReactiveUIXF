@@ -8,28 +8,30 @@
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               x:TypeArguments="vm:FilmViewModel"
                               mc:Ignorable="d">
-    <Grid BackgroundColor="#9B9B9B">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Entry Margin="24,0"
-               Placeholder="Search"
-               VerticalOptions="Center" />
-        <ListView x:Name="FilmList" Grid.Row="1">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Title}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Grid x:Name="Loading" Grid.RowSpan="2">
-            <Grid BackgroundColor="Black" Opacity="0.45" />
-            <ActivityIndicator HorizontalOptions="Center"
-                               IsRunning="True"
-                               VerticalOptions="Center"
-                               Color="CornflowerBlue" />
+    <ContentPage.Content>
+        <Grid BackgroundColor="#9B9B9B">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Entry Margin="24,0"
+                   Placeholder="Search"
+                   VerticalOptions="Center" />
+            <ListView x:Name="FilmList" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Title}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid x:Name="Loading" Grid.RowSpan="2">
+                <Grid BackgroundColor="Black" Opacity="0.45" />
+                <ActivityIndicator HorizontalOptions="Center"
+                                   IsRunning="True"
+                                   VerticalOptions="Center"
+                                   Color="CornflowerBlue" />
+            </Grid>
         </Grid>
-    </Grid>
+    </ContentPage.Content>
 
 </xamForms:ReactiveContentPage>
