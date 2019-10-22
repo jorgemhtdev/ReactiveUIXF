@@ -14,7 +14,8 @@
                 <RowDefinition Height="80" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Entry Margin="24,0"
+            <Entry x:Name="SearchText"
+                   Margin="24,0"
                    Placeholder="Search"
                    VerticalOptions="Center" />
             <ListView x:Name="FilmList" Grid.Row="1">

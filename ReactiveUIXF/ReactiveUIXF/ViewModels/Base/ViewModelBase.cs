@@ -14,7 +14,7 @@
         protected CompositeDisposable Disposables;
         protected readonly INavigationService NavigationService;
         protected readonly IApiService ApiService;
-        protected extern bool Loading { [ObservableAsProperty] get; }
+        public bool Loading { [ObservableAsProperty] get; }
 
         protected ViewModelBase()
         {

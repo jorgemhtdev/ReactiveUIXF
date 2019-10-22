@@ -3,6 +3,7 @@
     using ReactiveUI;
     using ReactiveUI.XamForms;
     using ReactiveUIXF.ViewModels;
+    using System;
     using System.Reactive;
     using System.Reactive.Disposables;
     using System.Reactive.Linq;
@@ -20,10 +21,13 @@
                     .Select(x => Unit.Default)
                     .InvokeCommand(ViewModel.LoadCommand);
 
+                this.Bind(ViewModel, vm => vm.Search, v => v.SearchText.Text)
+                    .DisposeWith(disposables);
+
                 this.OneWayBind(ViewModel, vm => vm.Films, v => v.FilmList.ItemsSource)
                     .DisposeWith(disposables);
 
-                this.OneWayBind(ViewModel, vm => vm.LoadingFilms, v => v.Loading.IsVisible)
+                this.OneWayBind(ViewModel, vm => vm.Loading, v => v.Loading.IsVisible)
                     .DisposeWith(disposables);
             });
         }
