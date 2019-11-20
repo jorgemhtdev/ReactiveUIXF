@@ -145,6 +145,7 @@ This project uses some third-party assets with a license that requires attributi
 - [Dependency inversion - Splat](https://reactiveui.net/docs/handbook/dependency-inversion/)
 - [Data Binding](https://reactiveui.net/docs/handbook/data-binding/)
 - [Binding Commands](https://reactiveui.net/docs/handbook/commands/binding-commands)
+- [Template](https://github.com/jorgemht/TemplatesInXF)
 
 ## Clean and Rebuild
 
