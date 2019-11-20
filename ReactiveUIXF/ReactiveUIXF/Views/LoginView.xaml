@@ -1,19 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<xamForms:ReactiveContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                              xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
-                              xmlns:vm="clr-namespace:ReactiveUIXF.ViewModels"
-                              mc:Ignorable="d"
-                              x:TypeArguments="vm:LoginViewModel"
-                              x:Class="ReactiveUIXF.Views.LoginView">
+<xamForms:ReactiveContentPage
+    x:Class="ReactiveUIXF.Views.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:ReactiveUIXF.ViewModels"
+    xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+    x:TypeArguments="vm:LoginViewModel"
+    mc:Ignorable="d">
     <ContentPage.Content>
-        <StackLayout>
-            <Entry x:Name="Email" Placeholder="Email" />
-            <Entry x:Name="Password" Placeholder="Password" IsPassword="True" />
-
-            <Button x:Name="BtnLogin" Text="Iniciar sesión" />
-        </StackLayout>
+        <FlexLayout
+            AlignItems="Center"
+            Direction="Column"
+            JustifyContent="SpaceAround">
+            <FlexLayout FlexLayout.Grow="1" JustifyContent="Center">
+                <BoxView BackgroundColor="Accent" FlexLayout.AlignSelf="Center" />
+            </FlexLayout>
+            <FlexLayout
+                AlignItems="Center"
+                Direction="Column"
+                FlexLayout.Grow="1"
+                JustifyContent="Center">
+                <Entry
+                    x:Name="Email"
+                    Placeholder="Email"
+                    WidthRequest="280" />
+                <Entry
+                    x:Name="Password"
+                    IsPassword="True"
+                    Placeholder="Password"
+                    WidthRequest="280" />
+            </FlexLayout>
+            <FlexLayout
+                Direction="Column"
+                FlexLayout.Grow="1"
+                JustifyContent="Center">
+                <Button
+                    x:Name="BtnLogin"
+                    Command="{Binding LoginCommand}"
+                    FlexLayout.AlignSelf="Center"
+                    Text="Iniciar diversión con banderas" />
+            </FlexLayout>
+        </FlexLayout>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

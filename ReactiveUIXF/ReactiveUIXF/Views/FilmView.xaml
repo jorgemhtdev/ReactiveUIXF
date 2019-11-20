@@ -1,38 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<xamForms:ReactiveContentPage x:Class="ReactiveUIXF.Views.FilmView"
-                              xmlns="http://xamarin.com/schemas/2014/forms"
-                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                              xmlns:vm="clr-namespace:ReactiveUIXF.ViewModels;assembly=ReactiveUIXF"
-                              xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
-                              x:TypeArguments="vm:FilmViewModel"
-                              mc:Ignorable="d">
+<xamForms:ReactiveContentPage
+    x:Class="ReactiveUIXF.Views.FilmView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:ReactiveUIXF.ViewModels;assembly=ReactiveUIXF"
+    xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+    x:TypeArguments="vm:FilmViewModel"
+    mc:Ignorable="d">
     <ContentPage.Content>
-        <Grid BackgroundColor="#9B9B9B">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Entry x:Name="SearchText"
-                   Margin="24,0"
-                   Placeholder="Search"
-                   VerticalOptions="Center" />
-            <ListView x:Name="FilmList" Grid.Row="1">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Title}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Grid x:Name="Loading" Grid.RowSpan="2">
+        <FlexLayout Direction="Column">
+            <FlexLayout
+                AlignItems="Center"
+                Direction="Row"
+                FlexLayout.Basis="15%"
+                JustifyContent="Center">
+                <Frame
+                    Padding="0"
+                    BorderColor="Black"
+                    CornerRadius="25"
+                    FlexLayout.Basis="80%">
+                    <Entry
+                        x:Name="SearchText"
+                        Margin="20,0"
+                        Placeholder="Filtrar peliculas" />
+                </Frame>
+
+            </FlexLayout>
+            <FlexLayout FlexLayout.Basis="85%">
+                <ListView x:Name="FilmList" Grid.Row="1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Title}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </FlexLayout>
+            <!--  Pendiente de revisar  -->
+            <FlexLayout x:Name="Loading">
                 <Grid BackgroundColor="Black" Opacity="0.45" />
-                <ActivityIndicator HorizontalOptions="Center"
-                                   IsRunning="True"
-                                   VerticalOptions="Center"
-                                   Color="CornflowerBlue" />
-            </Grid>
-        </Grid>
+                <ActivityIndicator
+                    HorizontalOptions="Center"
+                    IsRunning="True"
+                    VerticalOptions="Center"
+                    Color="CornflowerBlue" />
+            </FlexLayout>
+        </FlexLayout>
+
     </ContentPage.Content>
 
 </xamForms:ReactiveContentPage>

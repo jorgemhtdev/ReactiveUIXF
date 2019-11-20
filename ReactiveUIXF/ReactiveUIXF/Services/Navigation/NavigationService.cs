@@ -103,7 +103,6 @@
         {
             mappings.Add(typeof(FilmViewModel), typeof(FilmView));
             mappings.Add(typeof(LoginViewModel), typeof(LoginView));
-            mappings.Add(typeof(MainViewModel), typeof(MainView));
 
             if (Device.Idiom == TargetIdiom.Desktop) { } else { }
         }
