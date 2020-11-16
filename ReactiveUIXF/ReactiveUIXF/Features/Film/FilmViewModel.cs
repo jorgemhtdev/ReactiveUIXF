@@ -1,4 +1,4 @@
-﻿namespace ReactiveUIXF.ViewModels
+﻿namespace ReactiveUIXF.Features
 {
     using Models;
     using System;
@@ -8,11 +8,11 @@
     using System.Reactive.Linq;
     using ReactiveUI.Fody.Helpers;
     using System.Collections.Generic;
-    using ReactiveUIXF.ViewModels.Base;
     using System.Collections.ObjectModel;
     using System.Reactive.Threading.Tasks;
+    using ReactiveUIXF.Base;
 
-    public class FilmViewModel : ViewModelBase
+    public class FilmViewModel : BaseViewModel
     {
         private SourceList<Film> _filmData;
 
@@ -44,11 +44,11 @@
         private void ConfigureLoadCommand()
         {
             LoadCommand = ReactiveCommand.CreateFromObservable(LoadData);
-            LoadCommand.IsExecuting.ToPropertyEx(this, x => x.Loading);
+            //LoadCommand.IsExecuting.ToPropertyEx(this, x => x.Loading);
             LoadCommand.Subscribe(_filmData.AddRange);
         }
 
-        private IObservable<IEnumerable<Film>> LoadData() => ApiService.GetAllFilm().ToObservable();
+        private IObservable<IEnumerable<Film>> LoadData() => apiService.GetAllFilm().ToObservable();
 
         private static Func<Film, bool> BuildFilter(string searchText)
         {

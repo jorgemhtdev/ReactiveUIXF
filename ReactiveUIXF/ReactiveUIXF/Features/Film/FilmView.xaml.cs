@@ -1,8 +1,7 @@
-﻿namespace ReactiveUIXF.Views
+﻿namespace ReactiveUIXF.Features
 {
     using ReactiveUI;
     using ReactiveUI.XamForms;
-    using ReactiveUIXF.ViewModels;
     using System;
     using System.Reactive;
     using System.Reactive.Disposables;
@@ -27,8 +26,8 @@
                 this.OneWayBind(ViewModel, vm => vm.Films, v => v.FilmList.ItemsSource)
                     .DisposeWith(disposables);
 
-                this.OneWayBind(ViewModel, vm => vm.Loading, v => v.Loading.IsVisible)
-                    .DisposeWith(disposables);
+                //this.OneWayBind(ViewModel, vm => vm.Loading, v => v.Loading.IsVisible)
+                    //.DisposeWith(disposables);
             });
         }
     }

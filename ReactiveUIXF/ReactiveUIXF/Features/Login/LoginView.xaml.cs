@@ -1,8 +1,7 @@
-﻿namespace ReactiveUIXF.Views
+﻿namespace ReactiveUIXF.Features
 {
     using ReactiveUI;
     using ReactiveUI.XamForms;
-    using ReactiveUIXF.ViewModels;
     using System.Reactive.Disposables;
     using Xamarin.Forms.Xaml;
 

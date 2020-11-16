@@ -1,11 +1,8 @@
 ﻿namespace ReactiveUIXF
 {
-    using ReactiveUIXF.Services.Navigation;
-    using ReactiveUIXF.ViewModels.Base;
-    using System.Threading.Tasks;
-    using Xamarin.Forms.Xaml;
+    using ReactiveUIXF.Features;
     using Xamarin.Forms;
-    using Splat;
+    using Xamarin.Forms.Xaml;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
@@ -14,17 +11,9 @@
         {
             InitializeComponent();
 
-            Build();
-
-            InitNavigation();
-        }
-        void Build() => AppBootstrapper.Instance.Build();
-        
-        private Task InitNavigation()
-        {
-            var navigationService = Locator.Current.GetService<INavigationService>();
-
-            return navigationService.InitializeAsync();
+            NavigationPage navigationPage = new NavigationPage(new LoginView() { ViewModel = new LoginViewModel() });
+            NavigationPage.SetHasNavigationBar(navigationPage.CurrentPage, false);
+            MainPage = navigationPage;
         }
 
         protected override void OnStart() { }

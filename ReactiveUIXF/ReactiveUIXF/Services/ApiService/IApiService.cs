@@ -1,4 +1,4 @@
-﻿namespace ReactiveUIXF.Services.Api
+﻿namespace ReactiveUIXF.Services
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
